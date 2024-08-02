@@ -11,7 +11,23 @@
 		FA006D652C50274A00AC46E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA006D642C50274A00AC46E2 /* ContentView.swift */; };
 		FA006D672C50274B00AC46E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA006D662C50274B00AC46E2 /* Assets.xcassets */; };
 		FA006D6A2C50274B00AC46E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA006D692C50274B00AC46E2 /* Preview Assets.xcassets */; };
+		FA006D752C50843A00AC46E2 /* substantiv_singular_der.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D722C50843A00AC46E2 /* substantiv_singular_der.txt */; };
+		FA006D762C50843A00AC46E2 /* substantiv_singular_die.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D732C50843A00AC46E2 /* substantiv_singular_die.txt */; };
+		FA006D772C50843A00AC46E2 /* substantiv_singular_das.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D742C50843A00AC46E2 /* substantiv_singular_das.txt */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA64BFF72C5693A50092D673 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FA006D5F2C50274A00AC46E2 /* Articool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Articool.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +36,10 @@
 		FA006D662C50274B00AC46E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA006D692C50274B00AC46E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA006D6B2C50274B00AC46E2 /* Articool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Articool.entitlements; sourceTree = "<group>"; };
+		FA006D722C50843A00AC46E2 /* substantiv_singular_der.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substantiv_singular_der.txt; sourceTree = "<group>"; };
+		FA006D732C50843A00AC46E2 /* substantiv_singular_die.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substantiv_singular_die.txt; sourceTree = "<group>"; };
+		FA006D742C50843A00AC46E2 /* substantiv_singular_das.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substantiv_singular_das.txt; sourceTree = "<group>"; };
+		FA4C7BE12C5445FA0024441A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +72,10 @@
 		FA006D612C50274A00AC46E2 /* Articool */ = {
 			isa = PBXGroup;
 			children = (
+				FA4C7BE12C5445FA0024441A /* Info.plist */,
+				FA006D722C50843A00AC46E2 /* substantiv_singular_der.txt */,
+				FA006D732C50843A00AC46E2 /* substantiv_singular_die.txt */,
+				FA006D742C50843A00AC46E2 /* substantiv_singular_das.txt */,
 				FA006D622C50274A00AC46E2 /* ArticoolApp.swift */,
 				FA006D642C50274A00AC46E2 /* ContentView.swift */,
 				FA006D662C50274B00AC46E2 /* Assets.xcassets */,
@@ -79,6 +103,7 @@
 				FA006D5B2C50274A00AC46E2 /* Sources */,
 				FA006D5C2C50274A00AC46E2 /* Frameworks */,
 				FA006D5D2C50274A00AC46E2 /* Resources */,
+				FA64BFF72C5693A50092D673 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -127,8 +152,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA006D772C50843A00AC46E2 /* substantiv_singular_das.txt in Resources */,
 				FA006D6A2C50274B00AC46E2 /* Preview Assets.xcassets in Resources */,
+				FA006D762C50843A00AC46E2 /* substantiv_singular_die.txt in Resources */,
 				FA006D672C50274B00AC46E2 /* Assets.xcassets in Resources */,
+				FA006D752C50843A00AC46E2 /* substantiv_singular_der.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +298,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Articool/Articool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -279,6 +308,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Articool/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -297,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Articool/Articool.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -306,6 +337,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Articool/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
