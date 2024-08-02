@@ -41,12 +41,12 @@ struct ContentView: View {
             }
             .padding()
             VStack(alignment: .leading, spacing: 6) {
-                Text(searchWord.isEmpty ? "der" : words.words[searchWord] ?? "...")
+                Text(searchWord.isEmpty ? "der" : words.words[searchWord.lowercased()] ?? "...")
                     .font(.system(size: 32.0))
                     .bold()
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: true)
-                Text(searchWord.isEmpty ? "Hund" : searchWord)
+                Text(searchWord.isEmpty ? "Hund" : searchWord.capitalized)
                     .font(.system(size: 24.0))
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: true)
