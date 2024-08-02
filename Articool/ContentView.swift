@@ -9,9 +9,20 @@ enum Dictionary: String, CaseIterable, Identifiable {
 struct ContentView: View {
     @State private var selectedLanguage: Dictionary = Dictionary.german
     @State private var searchWord: String = ""
+    private var words: Dict
+    
+    init() {
+        words = Dict()
+        let words_der = readFromFile(filePath: "substantiv_singular_der")!
+        let words_das = readFromFile(filePath: "substantiv_singular_das")!
+        let words_die = readFromFile(filePath: "substantiv_singular_die")!
+        words.addWords(words: words_der, article: "der")
+        words.addWords(words: words_das, article: "das")
+        words.addWords(words: words_die, article: "die")
+        words.finalize()
+    }
     
     var body: some View {
-     
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 TextField("Search word", text: $searchWord)
@@ -30,11 +41,12 @@ struct ContentView: View {
             }
             .padding()
             VStack(alignment: .leading, spacing: 6) {
-                Text("**die**")
+                Text(searchWord.isEmpty ? "der" : words.words[searchWord] ?? "...")
                     .font(.system(size: 32.0))
+                    .bold()
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: true)
-                Text("Wettervorhersage")
+                Text(searchWord.isEmpty ? "Hund" : searchWord)
                     .font(.system(size: 24.0))
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: true)
