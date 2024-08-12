@@ -15,7 +15,8 @@ struct ArticoolApp: App {
                 }) {
                     Text("About Det Hund")
                 }
-            }
+            };
+            CommandGroup(replacing: .newItem, addition: { })
         }
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unifiedCompact)

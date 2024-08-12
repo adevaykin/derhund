@@ -16,16 +16,19 @@ struct AboutView: View {
                 Text("Alexander Devaikin")
                     .bold()
                     Link("alex.devaykin@mail.com", destination: URL(string: "mailto:alex.devaykin@gmail.com")!)
+                        .pointingHandCursor()
                 Spacer()
                 HStack {
                     Text("Donate me a coffee:")
                     Link("PayPal",
                          destination: URL(string: "https://paypal.me/adevaikin")!)
+                        .pointingHandCursor()
                 }
                 HStack {
                     Text("Source code:")
                     Link("GitHub",
                          destination: URL(string: "https://github.com/adevaykin/derhund")!)
+                    .pointingHandCursor()
                 }
             }
             .padding()
