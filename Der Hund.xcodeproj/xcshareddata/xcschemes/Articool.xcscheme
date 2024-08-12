@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA006D5E2C50274A00AC46E2"
-               BuildableName = "Articool.app"
-               BlueprintName = "Articool"
-               ReferencedContainer = "container:Articool.xcodeproj">
+               BuildableName = "Der Hund.app"
+               BlueprintName = "Der Hund"
+               ReferencedContainer = "container:Der Hund.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA006D5E2C50274A00AC46E2"
-            BuildableName = "Articool.app"
-            BlueprintName = "Articool"
-            ReferencedContainer = "container:Articool.xcodeproj">
+            BuildableName = "Der Hund.app"
+            BlueprintName = "Der Hund"
+            ReferencedContainer = "container:Der Hund.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA006D5E2C50274A00AC46E2"
-            BuildableName = "Articool.app"
-            BlueprintName = "Articool"
-            ReferencedContainer = "container:Articool.xcodeproj">
+            BuildableName = "Der Hund.app"
+            BlueprintName = "Der Hund"
+            ReferencedContainer = "container:Der Hund.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -14,6 +14,8 @@
 		FA006D752C50843A00AC46E2 /* substantiv_singular_der.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D722C50843A00AC46E2 /* substantiv_singular_der.txt */; };
 		FA006D762C50843A00AC46E2 /* substantiv_singular_die.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D732C50843A00AC46E2 /* substantiv_singular_die.txt */; };
 		FA006D772C50843A00AC46E2 /* substantiv_singular_das.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D742C50843A00AC46E2 /* substantiv_singular_das.txt */; };
+		FA902AD72C6410B0008F76EE /* DerHundAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA902AD62C6410B0008F76EE /* DerHundAppDelegate.swift */; };
+		FA902AD92C6410DB008F76EE /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA902AD82C6410DB008F76EE /* AboutView.swift */; };
 		FADB2C4E2C5D88DB00DE65E7 /* Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB2C4D2C5D88DB00DE65E7 /* Dict.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FA006D5F2C50274A00AC46E2 /* Articool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Articool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA006D5F2C50274A00AC46E2 /* Der Hund.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Der Hund.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA006D622C50274A00AC46E2 /* ArticoolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticoolApp.swift; sourceTree = "<group>"; };
 		FA006D642C50274A00AC46E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA006D662C50274B00AC46E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,6 +43,8 @@
 		FA006D732C50843A00AC46E2 /* substantiv_singular_die.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substantiv_singular_die.txt; sourceTree = "<group>"; };
 		FA006D742C50843A00AC46E2 /* substantiv_singular_das.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substantiv_singular_das.txt; sourceTree = "<group>"; };
 		FA4C7BE12C5445FA0024441A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FA902AD62C6410B0008F76EE /* DerHundAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DerHundAppDelegate.swift; sourceTree = "<group>"; };
+		FA902AD82C6410DB008F76EE /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		FADB2C4D2C5D88DB00DE65E7 /* Dict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dict.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +70,7 @@
 		FA006D602C50274A00AC46E2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA006D5F2C50274A00AC46E2 /* Articool.app */,
+				FA006D5F2C50274A00AC46E2 /* Der Hund.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +88,8 @@
 				FA006D6B2C50274B00AC46E2 /* Articool.entitlements */,
 				FA006D682C50274B00AC46E2 /* Preview Content */,
 				FADB2C4D2C5D88DB00DE65E7 /* Dict.swift */,
+				FA902AD62C6410B0008F76EE /* DerHundAppDelegate.swift */,
+				FA902AD82C6410DB008F76EE /* AboutView.swift */,
 			);
 			path = Articool;
 			sourceTree = "<group>";
@@ -99,9 +105,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA006D5E2C50274A00AC46E2 /* Articool */ = {
+		FA006D5E2C50274A00AC46E2 /* Der Hund */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA006D6E2C50274B00AC46E2 /* Build configuration list for PBXNativeTarget "Articool" */;
+			buildConfigurationList = FA006D6E2C50274B00AC46E2 /* Build configuration list for PBXNativeTarget "Der Hund" */;
 			buildPhases = (
 				FA006D5B2C50274A00AC46E2 /* Sources */,
 				FA006D5C2C50274A00AC46E2 /* Frameworks */,
@@ -112,9 +118,9 @@
 			);
 			dependencies = (
 			);
-			name = Articool;
+			name = "Der Hund";
 			productName = Articool;
-			productReference = FA006D5F2C50274A00AC46E2 /* Articool.app */;
+			productReference = FA006D5F2C50274A00AC46E2 /* Der Hund.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -132,7 +138,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA006D5A2C50274A00AC46E2 /* Build configuration list for PBXProject "Articool" */;
+			buildConfigurationList = FA006D5A2C50274A00AC46E2 /* Build configuration list for PBXProject "Der Hund" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -145,7 +151,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA006D5E2C50274A00AC46E2 /* Articool */,
+				FA006D5E2C50274A00AC46E2 /* Der Hund */,
 			);
 		};
 /* End PBXProject section */
@@ -170,9 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA902AD72C6410B0008F76EE /* DerHundAppDelegate.swift in Sources */,
 				FA006D652C50274A00AC46E2 /* ContentView.swift in Sources */,
 				FA006D632C50274A00AC46E2 /* ArticoolApp.swift in Sources */,
 				FADB2C4E2C5D88DB00DE65E7 /* Dict.swift in Sources */,
+				FA902AD92C6410DB008F76EE /* AboutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,13 +321,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Articool/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Der Hund";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.devaikin.Articool;
+				PRODUCT_BUNDLE_IDENTIFIER = de.devaikin.derhund;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -342,13 +353,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Articool/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Der Hund";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.devaikin.Articool;
+				PRODUCT_BUNDLE_IDENTIFIER = de.devaikin.derhund;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -358,7 +372,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA006D5A2C50274A00AC46E2 /* Build configuration list for PBXProject "Articool" */ = {
+		FA006D5A2C50274A00AC46E2 /* Build configuration list for PBXProject "Der Hund" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA006D6C2C50274B00AC46E2 /* Debug */,
@@ -367,7 +381,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA006D6E2C50274B00AC46E2 /* Build configuration list for PBXNativeTarget "Articool" */ = {
+		FA006D6E2C50274B00AC46E2 /* Build configuration list for PBXNativeTarget "Der Hund" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA006D6F2C50274B00AC46E2 /* Debug */,

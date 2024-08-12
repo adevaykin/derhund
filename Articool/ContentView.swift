@@ -23,22 +23,33 @@ struct ContentView: View {
     }
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 6) {
-                TextField("Search word", text: $searchWord)
-                    .frame(width: 200)
-                Spacer()
-                HStack {
+        NavigationStack {
+            Text("")
+                .navigationTitle("Welcome")
+                .toolbar {
                     Picker("", selection: $selectedLanguage) {
                         Text("German").tag(Dictionary.german)
                     }
                     .frame(width: 150)
                     Button(action: indexDictionary) {
-                        Image(systemName:"repeat")
+                        Image(systemName:"magnifyingglass")
                         Text("Index")
                     }
                 }
+        }
+        HStack {
+            VStack(alignment: .leading, spacing: 6) {
+                TextField("Search word", text: $searchWord)
+                    .frame(width: 200)
+                Spacer()
+                    .frame(minHeight: 32, maxHeight: 64)
+                    .fixedSize()
+                Text("1. Type a word in field above")
+                Text("2. Click Index to add language to Spotlight")
+                Text("3. Type 'hund Hund' in Spotlight")
+                Spacer()
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             VStack(alignment: .leading, spacing: 6) {
                 Text(searchWord.isEmpty ? "der" : words.words[searchWord.lowercased()] ?? "...")
@@ -52,6 +63,7 @@ struct ContentView: View {
                     .fixedSize(horizontal: true, vertical: true)
                 Spacer()
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
         }
     }

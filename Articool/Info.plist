@@ -10,14 +10,14 @@
 			<key>CFBundleTypeIconSystemGenerated</key>
 			<integer>1</integer>
 			<key>CFBundleTypeName</key>
-			<string>Articool Entry</string>
+			<string>Der Hund Item</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>de.devaikin.articool.artcl</string>
+				<string>com.deva.derhund.item</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>NSDocument</string>
@@ -31,7 +31,7 @@
 				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>Articool Entry</string>
+			<string>Der Hund Item</string>
 			<key>UTTypeIconFile</key>
 			<string>GenericIcon</string>
 			<key>UTTypeIcons</key>
@@ -41,19 +41,19 @@
 				<key>UTTypeIconBadgeName</key>
 				<string>GenericIcon</string>
 				<key>UTTypeIconText</key>
-				<string>artcl</string>
+				<string>Der Hund</string>
 			</dict>
 			<key>UTTypeIdentifier</key>
-			<string>de.devaikin.articool.artcl</string>
+			<string>com.deva.derhund.item</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
 				<array>
-					<string>artcl</string>
+					<string>hund</string>
 				</array>
 				<key>public.mime-type</key>
 				<array>
-					<string>application/x-articool-article</string>
+					<string>application/x-derhund-item</string>
 				</array>
 			</dict>
 		</dict>
