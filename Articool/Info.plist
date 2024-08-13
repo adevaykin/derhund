@@ -17,7 +17,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.deva.derhund.item</string>
+				<string>de.devaikin.derhund.item</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>NSDocument</string>
@@ -44,7 +44,7 @@
 				<string>Der Hund</string>
 			</dict>
 			<key>UTTypeIdentifier</key>
-			<string>com.deva.derhund.item</string>
+			<string>de.devaikin.derhund.item</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

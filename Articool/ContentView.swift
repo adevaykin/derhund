@@ -1,6 +1,9 @@
 import SwiftUI
 import CoreSpotlight
 
+let prefix = "hund"
+let documentType = "de.devaikin.derhund.item"
+
 enum Dictionary: String, CaseIterable, Identifiable {
     case german
     var id: Self { self }
@@ -44,9 +47,14 @@ struct ContentView: View {
                 Spacer()
                     .frame(minHeight: 32, maxHeight: 64)
                     .fixedSize()
-                Text("1. Type a word in field above")
-                Text("2. Click Index to add language to Spotlight")
-                Text("3. Type 'hund Hund' in Spotlight")
+                Text("Type a word in field above")
+                    .opacity(0.4)
+                Text("or")
+                    .opacity(0.4)
+                Text("1. Click Index to add language to Spotlight")
+                    .opacity(0.4)
+                Text("2. Type 'hund Hund' in Spotlight")
+                    .opacity(0.4)
                 Spacer()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -93,26 +101,26 @@ func addWordsToSearchable(words: [DictEntry]) -> ([CSSearchableItem], Data) {
     var clientData = Data()
     var searchableItems: [CSSearchableItem] = []
     var i = 0
-    let myType = UTType(filenameExtension: "artcl")!
+    let myType = UTType(filenameExtension: prefix)!
     for word in words.reversed() {
         let attributeSet = CSSearchableItemAttributeSet(contentType: myType)
-        attributeSet.title = word.article + " " + word.word + ".artcl"
+        attributeSet.title = word.article + " " + word.word + "." + prefix
         attributeSet.contentDescription = word.word
         attributeSet.displayName = word.article
-        attributeSet.keywords = [ "artcl", word.word ]
-        attributeSet.comment = "artcl " + word.article + " " + word.word
-        attributeSet.contentType = "de.devaikin.articool.artcl"
+        attributeSet.keywords = [ prefix, word.word ]
+        attributeSet.comment = prefix + " " + word.article + " " + word.word
+        attributeSet.contentType = documentType
 
-        let id = "artcl." + word.language + "." + word.article + "." + word.word
-        let indexItem = CSSearchableItem(uniqueIdentifier: id, domainIdentifier: "artcl", attributeSet: attributeSet)
+        let id = word.language + "." + word.article + "." + word.word
+        let indexItem = CSSearchableItem(uniqueIdentifier: id, domainIdentifier: prefix, attributeSet: attributeSet)
         searchableItems.append(indexItem)
 
-//        do {
-//            //let jsonData = try JSONSerialization.data(withJSONObject: id, options: [])
-//            //clientData.append(jsonData)
-//        } catch {
-//            print("Error serializing unique identifiers: \(error)")
-//        }
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: id, options: [])
+            clientData.append(jsonData)
+        } catch {
+            print("Error serializing unique identifiers: \(error)")
+        }
         
         i += 1
     }
@@ -144,14 +152,10 @@ func indexDictionary() {
     allWords.sort { $0.word.count < $1.word.count }
     
     let (searchableItems, clientData) = addWordsToSearchable(words: allWords)
-    
-    let defaultIndex = CSSearchableIndex(name: "Articool")
-    print("Clean index")
+
+    let defaultIndex = CSSearchableIndex(name: "Der Hund")
     defaultIndex.deleteAllSearchableItems()
-    
-    print("Start indexing")
     defaultIndex.beginBatch()
-    
     defaultIndex.indexSearchableItems(searchableItems)
     defaultIndex.endBatch(withClientState: clientData) { error in
         if error != nil {
