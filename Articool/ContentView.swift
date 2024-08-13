@@ -10,6 +10,8 @@ enum Dictionary: String, CaseIterable, Identifiable {
 }
 
 struct ContentView: View {
+    @State private var showingIndexConfirmation = false
+    @State private var showindProgressView = false
     @State private var selectedLanguage: Dictionary = Dictionary.german
     @State private var searchWord: String = ""
     private var words: Dict
@@ -33,11 +35,19 @@ struct ContentView: View {
                     Picker("", selection: $selectedLanguage) {
                         Text("German").tag(Dictionary.german)
                     }
-                    .frame(width: 150)
-                    Button(action: indexDictionary) {
-                        Image(systemName:"magnifyingglass")
-                        Text("Index")
-                    }
+                        .frame(width: 150)
+                    Button("Index", systemImage: "magnifyingglass", action: { showingIndexConfirmation = true })
+                        .labelStyle(.titleAndIcon)
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .scaleEffect(x: 0.5, y: 0.5, anchor: .center)
+                        .opacity(showindProgressView ? 1 : 0)
+                }
+                .confirmationDialog("Spotlight Index", isPresented: $showingIndexConfirmation) {
+                    Button("Index") { indexDictionary() }
+                    Button("Cancel", role: .cancel) { }
+                } message: {
+                    Text("Adding dictionary to Spotlight may take a few minutes. Should I start?")
                 }
         }
         HStack {
@@ -53,12 +63,13 @@ struct ContentView: View {
                     .opacity(0.4)
                 Text("1. Click Index to add language to Spotlight")
                     .opacity(0.4)
-                Text("2. Type 'hund Hund' in Spotlight")
+                Text("2. Type 'hund Wort' in Spotlight")
                     .opacity(0.4)
                 Spacer()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
+            
             VStack(alignment: .leading, spacing: 6) {
                 Text(searchWord.isEmpty ? "der" : words.words[searchWord.lowercased()] ?? "...")
                     .font(.system(size: 32.0))
@@ -73,6 +84,38 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
+        }
+    }
+    
+    
+    func indexDictionary() {
+        showindProgressView = true
+        
+        let derWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_der")!, article: "der")
+        let dieWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_die")!, article: "die")
+        let dasWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_das")!, article: "das")
+        
+        var allWords: [DictEntry] = []
+        allWords.append(contentsOf: derWords)
+        allWords.append(contentsOf: dieWords)
+        allWords.append(contentsOf: dasWords)
+        
+        allWords.sort { $0.word.count < $1.word.count }
+        
+        let searchableItems = addWordsToSearchable(words: allWords)
+        let clientData = Data()
+        let defaultIndex = CSSearchableIndex(name: "Der Hund")
+        defaultIndex.deleteAllSearchableItems()
+        defaultIndex.beginBatch()
+        defaultIndex.indexSearchableItems(searchableItems)
+        defaultIndex.endBatch(withClientState: clientData) { error in
+            if error != nil {
+                print("Indexing error")
+                print(error?.localizedDescription ?? "Unknown error")
+                showindProgressView = false
+            } else {
+                showindProgressView = false
+            }
         }
     }
 }
@@ -97,8 +140,7 @@ func readFromFile(filePath: String) -> [String]? {
     }
 }
 
-func addWordsToSearchable(words: [DictEntry]) -> ([CSSearchableItem], Data) {
-    var clientData = Data()
+func addWordsToSearchable(words: [DictEntry]) -> [CSSearchableItem] {
     var searchableItems: [CSSearchableItem] = []
     var i = 0
     let myType = UTType(filenameExtension: prefix)!
@@ -114,18 +156,11 @@ func addWordsToSearchable(words: [DictEntry]) -> ([CSSearchableItem], Data) {
         let id = word.language + "." + word.article + "." + word.word
         let indexItem = CSSearchableItem(uniqueIdentifier: id, domainIdentifier: prefix, attributeSet: attributeSet)
         searchableItems.append(indexItem)
-
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: id, options: [])
-            clientData.append(jsonData)
-        } catch {
-            print("Error serializing unique identifiers: \(error)")
-        }
         
         i += 1
     }
         
-    return (searchableItems, clientData)
+    return searchableItems
 }
 
 func makeDictEntries(words: [String], article: String) -> [DictEntry] {
@@ -137,33 +172,6 @@ func makeDictEntries(words: [String], article: String) -> [DictEntry] {
     }
     
     return result
-}
-
-func indexDictionary() {
-    let derWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_der")!, article: "der")
-    //let dieWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_die")!, article: "die")
-    //let dasWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_das")!, article: "das")
-    
-    var allWords: [DictEntry] = []
-    allWords.append(contentsOf: derWords)
-    //allWords.append(contentsOf: dieWords)
-    //allWords.append(contentsOf: dasWords)
-    
-    allWords.sort { $0.word.count < $1.word.count }
-    
-    let (searchableItems, clientData) = addWordsToSearchable(words: allWords)
-
-    let defaultIndex = CSSearchableIndex(name: "Der Hund")
-    defaultIndex.deleteAllSearchableItems()
-    defaultIndex.beginBatch()
-    defaultIndex.indexSearchableItems(searchableItems)
-    defaultIndex.endBatch(withClientState: clientData) { error in
-        if error != nil {
-            print(error?.localizedDescription ?? "Unknown error")
-        } else {
-            print("Item indexed.")
-        }
-    }
 }
 
 #Preview {
