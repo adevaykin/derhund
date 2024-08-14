@@ -11,12 +11,10 @@
 		FA006D652C50274A00AC46E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA006D642C50274A00AC46E2 /* ContentView.swift */; };
 		FA006D672C50274B00AC46E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA006D662C50274B00AC46E2 /* Assets.xcassets */; };
 		FA006D6A2C50274B00AC46E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA006D692C50274B00AC46E2 /* Preview Assets.xcassets */; };
-		FA006D752C50843A00AC46E2 /* substantiv_singular_der.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D722C50843A00AC46E2 /* substantiv_singular_der.txt */; };
-		FA006D762C50843A00AC46E2 /* substantiv_singular_die.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D732C50843A00AC46E2 /* substantiv_singular_die.txt */; };
-		FA006D772C50843A00AC46E2 /* substantiv_singular_das.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA006D742C50843A00AC46E2 /* substantiv_singular_das.txt */; };
 		FA5787E92C6AA8E7001C6EA5 /* LinkCursorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5787E82C6AA8E7001C6EA5 /* LinkCursorExtension.swift */; };
 		FA902AD72C6410B0008F76EE /* DerHundAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA902AD62C6410B0008F76EE /* DerHundAppDelegate.swift */; };
 		FA902AD92C6410DB008F76EE /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA902AD82C6410DB008F76EE /* AboutView.swift */; };
+		FAB6324F2C6D4F3B003C1943 /* german_nouns.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAB6324E2C6D4F3B003C1943 /* german_nouns.txt */; };
 		FADB2C4E2C5D88DB00DE65E7 /* Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB2C4D2C5D88DB00DE65E7 /* Dict.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,13 +38,11 @@
 		FA006D662C50274B00AC46E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA006D692C50274B00AC46E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA006D6B2C50274B00AC46E2 /* Articool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Articool.entitlements; sourceTree = "<group>"; };
-		FA006D722C50843A00AC46E2 /* substantiv_singular_der.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substantiv_singular_der.txt; sourceTree = "<group>"; };
-		FA006D732C50843A00AC46E2 /* substantiv_singular_die.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substantiv_singular_die.txt; sourceTree = "<group>"; };
-		FA006D742C50843A00AC46E2 /* substantiv_singular_das.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = substantiv_singular_das.txt; sourceTree = "<group>"; };
 		FA4C7BE12C5445FA0024441A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FA5787E82C6AA8E7001C6EA5 /* LinkCursorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCursorExtension.swift; sourceTree = "<group>"; };
 		FA902AD62C6410B0008F76EE /* DerHundAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DerHundAppDelegate.swift; sourceTree = "<group>"; };
 		FA902AD82C6410DB008F76EE /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		FAB6324E2C6D4F3B003C1943 /* german_nouns.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = german_nouns.txt; path = Data/German/german_nouns.txt; sourceTree = SOURCE_ROOT; };
 		FADB2C4D2C5D88DB00DE65E7 /* Dict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dict.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,9 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				FA4C7BE12C5445FA0024441A /* Info.plist */,
-				FA006D722C50843A00AC46E2 /* substantiv_singular_der.txt */,
-				FA006D732C50843A00AC46E2 /* substantiv_singular_die.txt */,
-				FA006D742C50843A00AC46E2 /* substantiv_singular_das.txt */,
 				FA006D622C50274A00AC46E2 /* ArticoolApp.swift */,
 				FA006D642C50274A00AC46E2 /* ContentView.swift */,
 				FA006D662C50274B00AC46E2 /* Assets.xcassets */,
@@ -93,6 +86,7 @@
 				FA902AD62C6410B0008F76EE /* DerHundAppDelegate.swift */,
 				FA902AD82C6410DB008F76EE /* AboutView.swift */,
 				FA5787E82C6AA8E7001C6EA5 /* LinkCursorExtension.swift */,
+				FAB6324E2C6D4F3B003C1943 /* german_nouns.txt */,
 			);
 			path = Articool;
 			sourceTree = "<group>";
@@ -164,11 +158,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA006D772C50843A00AC46E2 /* substantiv_singular_das.txt in Resources */,
 				FA006D6A2C50274B00AC46E2 /* Preview Assets.xcassets in Resources */,
-				FA006D762C50843A00AC46E2 /* substantiv_singular_die.txt in Resources */,
+				FAB6324F2C6D4F3B003C1943 /* german_nouns.txt in Resources */,
 				FA006D672C50274B00AC46E2 /* Assets.xcassets in Resources */,
-				FA006D752C50843A00AC46E2 /* substantiv_singular_der.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

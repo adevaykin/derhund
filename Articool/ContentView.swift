@@ -18,12 +18,15 @@ struct ContentView: View {
     
     init() {
         words = Dict()
-        let words_der = readFromFile(filePath: "substantiv_singular_der")!
-        let words_das = readFromFile(filePath: "substantiv_singular_das")!
-        let words_die = readFromFile(filePath: "substantiv_singular_die")!
-        words.addWords(words: words_der, article: "der")
-        words.addWords(words: words_das, article: "das")
-        words.addWords(words: words_die, article: "die")
+        let all_words = readFromFile(filePath: "german_nouns")!
+        for line in all_words {
+            if line.isEmpty {
+                continue
+            }
+            let components = line.components(separatedBy: ",")
+            words.addWord(word: components[0].lowercased(), article: components[1])
+        }
+
         words.finalize()
     }
     
@@ -91,14 +94,10 @@ struct ContentView: View {
     func indexDictionary() {
         showindProgressView = true
         
-        let derWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_der")!, article: "der")
-        let dieWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_die")!, article: "die")
-        let dasWords = makeDictEntries(words: readFromFile(filePath: "substantiv_singular_das")!, article: "das")
-        
         var allWords: [DictEntry] = []
-        allWords.append(contentsOf: derWords)
-        allWords.append(contentsOf: dieWords)
-        allWords.append(contentsOf: dasWords)
+        for word in words.words {
+            allWords.append(DictEntry(word: word.key, language: "de", article: word.value ))
+        }
         
         allWords.sort { $0.word.count < $1.word.count }
         
@@ -106,15 +105,24 @@ struct ContentView: View {
         let clientData = Data()
         let defaultIndex = CSSearchableIndex(name: "Der Hund")
         defaultIndex.deleteAllSearchableItems()
-        defaultIndex.beginBatch()
-        defaultIndex.indexSearchableItems(searchableItems)
-        defaultIndex.endBatch(withClientState: clientData) { error in
-            if error != nil {
-                print("Indexing error")
-                print(error?.localizedDescription ?? "Unknown error")
-                showindProgressView = false
-            } else {
-                showindProgressView = false
+        
+        let chunkSize = 20000
+        let totalChunks = (searchableItems.count + chunkSize - 1) / chunkSize
+        for chunkIndex in 0..<totalChunks {
+            let start = chunkIndex * chunkSize
+            let end = min(start + chunkSize, searchableItems.count)
+            let slice = Array(searchableItems[start..<end])
+            
+            defaultIndex.beginBatch()
+            defaultIndex.indexSearchableItems(slice)
+            defaultIndex.endBatch(withClientState: clientData) { error in
+                if error != nil {
+                    print("Indexing error")
+                    print(error?.localizedDescription ?? "Unknown error")
+                    showindProgressView = false
+                } else {
+                    showindProgressView = false
+                }
             }
         }
     }
@@ -144,16 +152,17 @@ func addWordsToSearchable(words: [DictEntry]) -> [CSSearchableItem] {
     var searchableItems: [CSSearchableItem] = []
     var i = 0
     let myType = UTType(filenameExtension: prefix)!
-    for word in words.reversed() {
+    for word in words {
         let attributeSet = CSSearchableItemAttributeSet(contentType: myType)
-        attributeSet.title = word.article + " " + word.word + "." + prefix
-        attributeSet.contentDescription = word.word
+        let capitalised = word.word.capitalized
+        attributeSet.title = word.article + " " + capitalised + "." + prefix
+        attributeSet.contentDescription = capitalised
         attributeSet.displayName = word.article
-        attributeSet.keywords = [ prefix, word.word ]
-        attributeSet.comment = prefix + " " + word.article + " " + word.word
+        attributeSet.keywords = [ prefix, capitalised ]
+        attributeSet.comment = prefix + " " + word.article + " " + capitalised
         attributeSet.contentType = documentType
 
-        let id = word.language + "." + word.article + "." + word.word
+        let id = word.language + "." + word.article + "." + capitalised
         let indexItem = CSSearchableItem(uniqueIdentifier: id, domainIdentifier: prefix, attributeSet: attributeSet)
         searchableItems.append(indexItem)
         
@@ -161,17 +170,6 @@ func addWordsToSearchable(words: [DictEntry]) -> [CSSearchableItem] {
     }
         
     return searchableItems
-}
-
-func makeDictEntries(words: [String], article: String) -> [DictEntry] {
-    var result: [DictEntry] = []
-    
-    for word in words {
-        let dictEntry = DictEntry(word: word, language: "de", article: article)
-        result.append(dictEntry)
-    }
-    
-    return result
 }
 
 #Preview {

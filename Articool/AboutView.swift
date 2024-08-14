@@ -27,22 +27,30 @@ struct AboutView: View {
                 Spacer()
                     .frame(height: 20)
                     .fixedSize()
-                HStack(spacing: 2) {
+                HStack(spacing: 4) {
                     Text("Donate a coffee:")
                     Link("PayPal",
                          destination: URL(string: "https://paypal.me/adevaikin")!)
                         .pointingHandCursor()
                 }
-                HStack(spacing: 2) {
+                HStack(spacing: 4) {
                     Text("Source code:")
                     Link("GitHub",
                          destination: URL(string: "https://github.com/adevaykin/derhund")!)
                     .pointingHandCursor()
                 }
+                Spacer()
+                    .frame(height: 20)
+                    .fixedSize()
+                HStack(spacing: 4) {
+                    Link("german-noun",
+                         destination: URL(string: "https://github.com/gambolputty/german-nouns")!)
+                    Text("was used as German dictionary source")
+                }
             }
             .padding()
         }
-        .frame(minWidth: 300, minHeight: 500)
+        .frame(minWidth: 400, minHeight: 500)
     }
 }
 
