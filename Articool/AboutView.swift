@@ -37,7 +37,7 @@ struct AboutView: View {
                     Text("Source code:")
                     Link("GitHub",
                          destination: URL(string: "https://github.com/adevaykin/derhund")!)
-                    .pointingHandCursor()
+                        .pointingHandCursor()
                 }
                 Spacer()
                     .frame(height: 20)
@@ -45,6 +45,7 @@ struct AboutView: View {
                 HStack(spacing: 4) {
                     Link("german-noun",
                          destination: URL(string: "https://github.com/gambolputty/german-nouns")!)
+                        .pointingHandCursor()
                     Text("was used as German dictionary source")
                 }
             }
