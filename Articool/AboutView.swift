@@ -30,7 +30,7 @@ struct AboutView: View {
                 HStack(spacing: 4) {
                     Text("Donate a coffee:")
                     Link("PayPal",
-                         destination: URL(string: "https://paypal.me/adevaikin")!)
+                         destination: URL(string: url_donate)!)
                         .pointingHandCursor()
                 }
                 HStack(spacing: 4) {

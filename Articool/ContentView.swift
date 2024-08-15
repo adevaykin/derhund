@@ -10,6 +10,7 @@ enum Dictionary: String, CaseIterable, Identifiable {
 }
 
 struct ContentView: View {
+    @Environment(\.openURL) var openLink
     @State private var showingIndexConfirmation = false
     @State private var showindProgressView = false
     @State private var selectedLanguage: Dictionary = Dictionary.german
@@ -38,13 +39,21 @@ struct ContentView: View {
                     Picker("", selection: $selectedLanguage) {
                         Text("German").tag(Dictionary.german)
                     }
+                    .help("Selected language")
                         .frame(width: 150)
                     Button("Index", systemImage: "magnifyingglass", action: { showingIndexConfirmation = true })
                         .labelStyle(.titleAndIcon)
+                        .help("Import dictionary to Spotlight search")
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
                         .scaleEffect(x: 0.5, y: 0.5, anchor: .center)
                         .opacity(showindProgressView ? 1 : 0)
+                    Spacer()
+                    Button("Donate", systemImage: "cup.and.saucer", action: {
+                        openLink(URL(string: url_donate)!)
+                    })
+                    .help("Donate a coffee")
+                    .labelStyle(.iconOnly)
                 }
                 .confirmationDialog("Spotlight Index", isPresented: $showingIndexConfirmation) {
                     Button("Index") { indexDictionary() }
@@ -89,7 +98,6 @@ struct ContentView: View {
             .padding()
         }
     }
-    
     
     func indexDictionary() {
         showindProgressView = true

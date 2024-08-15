@@ -5,7 +5,7 @@ import AppKit
 class DerHundAppDelegate: NSObject, NSApplicationDelegate {
     private var aboutBoxWindowController: NSWindowController?
 
-    func showAboutPanel() {
+    func showAboutWindow() {
         if aboutBoxWindowController == nil {
             let styleMask: NSWindow.StyleMask = [.closable, .miniaturizable,/* .resizable,*/ .titled]
             let window = NSWindow()
