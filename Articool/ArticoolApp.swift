@@ -5,10 +5,16 @@ let url_donate = "https://paypal.me/adevaikin"
 @main
 struct ArticoolApp: App {
     @NSApplicationDelegateAdaptor(DerHundAppDelegate.self) var appDelegate
+    @StateObject private var dict = Dict()
+    
+    init() {
+        appDelegate.dict = dict
+    }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(dict)
         }
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.appInfo) {

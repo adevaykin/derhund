@@ -10,26 +10,12 @@ enum Dictionary: String, CaseIterable, Identifiable {
 }
 
 struct ContentView: View {
+    @EnvironmentObject var words: Dict
     @Environment(\.openURL) var openLink
     @State private var showingIndexConfirmation = false
     @State private var showindProgressView = false
     @State private var selectedLanguage: Dictionary = Dictionary.german
     @State private var searchWord: String = ""
-    private var words: Dict
-    
-    init() {
-        words = Dict()
-        let all_words = readFromFile(filePath: "german_nouns")!
-        for line in all_words {
-            if line.isEmpty {
-                continue
-            }
-            let components = line.components(separatedBy: ",")
-            words.addWord(word: components[0].lowercased(), article: components[1])
-        }
-
-        words.finalize()
-    }
     
     var body: some View {
         NavigationStack {
@@ -142,20 +128,6 @@ struct DictEntry {
     var article: String
 }
 
-func readFromFile(filePath: String) -> [String]? {
-    let fullPath = Bundle.main.path(forResource: filePath, ofType: "txt")!
-    
-    do {
-        let content = try String(contentsOfFile: fullPath, encoding: .utf8)
-        let lines = content.components(separatedBy: .newlines)
-        
-        return lines
-    } catch {
-        print("Error reading file: \(error)")
-        return nil
-    }
-}
-
 func addWordsToSearchable(words: [DictEntry]) -> [CSSearchableItem] {
     var searchableItems: [CSSearchableItem] = []
     var i = 0
@@ -163,9 +135,9 @@ func addWordsToSearchable(words: [DictEntry]) -> [CSSearchableItem] {
     for word in words {
         let attributeSet = CSSearchableItemAttributeSet(contentType: myType)
         let capitalised = word.word.capitalized
-        attributeSet.title = word.article + " " + capitalised + "." + prefix
-        attributeSet.contentDescription = capitalised
+        attributeSet.title = prefix + " " + capitalised + " " + word.article
         attributeSet.displayName = word.article
+        attributeSet.contentDescription = capitalised
         attributeSet.keywords = [ prefix, capitalised ]
         attributeSet.comment = prefix + " " + word.article + " " + capitalised
         attributeSet.contentType = documentType
