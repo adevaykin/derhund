@@ -22,7 +22,7 @@ struct AboutView: View {
                 Text("Created by")
                 Text("Alexander Devaikin")
                     .bold()
-                    Link("alex.devaykin@mail.com", destination: URL(string: "mailto:alex.devaykin@gmail.com")!)
+                    Link("alex.devaykin@gmail.com", destination: URL(string: "mailto:alex.devaykin@gmail.com")!)
                         .pointingHandCursor()
                 Spacer()
                     .frame(height: 20)
@@ -43,7 +43,7 @@ struct AboutView: View {
                     .frame(height: 20)
                     .fixedSize()
                 HStack(spacing: 4) {
-                    Link("german-noun",
+                    Link("german-nouns",
                          destination: URL(string: "https://github.com/gambolputty/german-nouns")!)
                         .pointingHandCursor()
                     Text("was used as German dictionary source")

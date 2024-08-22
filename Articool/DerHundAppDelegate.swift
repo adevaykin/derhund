@@ -22,7 +22,7 @@ class DerHundAppDelegate: NSObject, NSApplicationDelegate {
             let styleMask: NSWindow.StyleMask = [.closable, .miniaturizable,/* .resizable,*/ .titled]
             let window = NSWindow()
             window.styleMask = styleMask
-            window.title = "About My App"
+            window.title = "About Der Hund"
             window.contentView = NSHostingView(rootView: AboutView())
             aboutBoxWindowController = NSWindowController(window: window)
         }
