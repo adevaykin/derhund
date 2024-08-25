@@ -69,15 +69,31 @@ struct ContentView: View {
             .padding()
             
             VStack(alignment: .leading, spacing: 6) {
-                Text(searchWord.isEmpty ? "der" : words.words[searchWord.lowercased()] ?? "...")
-                    .font(.system(size: 32.0))
-                    .bold()
-                    .lineLimit(1)
-                    .fixedSize(horizontal: true, vertical: true)
-                Text(searchWord.isEmpty ? "Hund" : searchWord.capitalized)
-                    .font(.system(size: 24.0))
-                    .lineLimit(1)
-                    .fixedSize(horizontal: true, vertical: true)
+                if searchWord.isEmpty {
+                    Text("der")
+                        .font(.system(size: 32.0))
+                        .bold()
+                        .lineLimit(1)
+                        .fixedSize(horizontal: true, vertical: true)
+                    Text("Hund")
+                        .font(.system(size: 24.0))
+                        .lineLimit(1)
+                        .fixedSize(horizontal: true, vertical: true)
+                } else {
+                    ForEach(words.words[searchWord.lowercased()] ?? ["..."], id: \.self) { article in
+                        Text(article)
+                            .font(.system(size: 32.0))
+                            .bold()
+                            .lineLimit(1)
+                            .fixedSize(horizontal: true, vertical: true)
+                        Text(searchWord.capitalized)
+                            .font(.system(size: 24.0))
+                            .lineLimit(1)
+                            .fixedSize(horizontal: true, vertical: true)
+                        Spacer()
+                            .frame(height: 24)
+                    }
+                }
                 Spacer()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -90,7 +106,9 @@ struct ContentView: View {
         
         var allWords: [DictEntry] = []
         for word in words.words {
-            allWords.append(DictEntry(word: word.key, language: "de", article: word.value ))
+            for article in word.value {
+                allWords.append(DictEntry(word: word.key, language: "de", article: article ))
+            }
         }
         
         allWords.sort { $0.word.count < $1.word.count }
