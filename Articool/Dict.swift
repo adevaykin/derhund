@@ -32,12 +32,6 @@ class Dict: ObservableObject {
         }
         
         self.words = read_words
-        for word in self.words {
-            if word.value.count > 1 {
-                print(word.key)
-                break
-            }
-        }
     }
 }
 

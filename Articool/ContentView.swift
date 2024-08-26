@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var showindProgressView = false
     @State private var selectedLanguage: Dictionary = Dictionary.german
     @State private var searchWord: String = ""
+    @FocusState private var isSearchWordFieldFocused: Bool
     
     var body: some View {
         NavigationStack {
@@ -52,6 +53,7 @@ struct ContentView: View {
             VStack(alignment: .leading, spacing: 6) {
                 TextField("Search word", text: $searchWord)
                     .frame(width: 200)
+                    .focused($isSearchWordFieldFocused)
                 Spacer()
                     .frame(minHeight: 32, maxHeight: 64)
                     .fixedSize()
@@ -98,6 +100,9 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
+            .onAppear {
+                isSearchWordFieldFocused = true
+            }
         }
     }
     
