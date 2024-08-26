@@ -24,15 +24,15 @@ struct AboutView: View {
                     .bold()
                     Link("alex.devaykin@gmail.com", destination: URL(string: "mailto:alex.devaykin@gmail.com")!)
                         .pointingHandCursor()
-                Spacer()
-                    .frame(height: 20)
-                    .fixedSize()
-                HStack(spacing: 4) {
-                    Text("Donate a coffee:")
-                    Link("PayPal",
-                         destination: URL(string: url_donate)!)
-                        .pointingHandCursor()
-                }
+//                Spacer()
+//                    .frame(height: 20)
+//                    .fixedSize()
+//                HStack(spacing: 4) {
+//                    Text("Donate a coffee:")
+//                    Link("PayPal",
+//                         destination: URL(string: url_donate)!)
+//                        .pointingHandCursor()
+//                }
                 HStack(spacing: 4) {
                     Text("Source code:")
                     Link("GitHub",

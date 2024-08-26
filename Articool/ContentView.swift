@@ -35,11 +35,11 @@ struct ContentView: View {
                         .scaleEffect(x: 0.5, y: 0.5, anchor: .center)
                         .opacity(showindProgressView ? 1 : 0)
                     Spacer()
-                    Button("Donate", systemImage: "cup.and.saucer", action: {
-                        openLink(URL(string: url_donate)!)
-                    })
-                    .help("Donate a coffee")
-                    .labelStyle(.iconOnly)
+//                    Button("Donate", systemImage: "cup.and.saucer", action: {
+//                        openLink(URL(string: url_donate)!)
+//                    })
+//                    .help("Donate a coffee")
+//                    .labelStyle(.iconOnly)
                 }
                 .confirmationDialog("Spotlight Index", isPresented: $showingIndexConfirmation) {
                     Button("Index") { indexDictionary() }

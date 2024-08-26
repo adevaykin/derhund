@@ -1,7 +1,5 @@
 import SwiftUI
 
-let url_donate = "https://paypal.me/adevaikin"
-
 @main
 struct ArticoolApp: App {
     @NSApplicationDelegateAdaptor(DerHundAppDelegate.self) var appDelegate
