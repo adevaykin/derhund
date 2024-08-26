@@ -1,15 +1,6 @@
 import SwiftUI
 import CoreSpotlight
 
-let prefix = "hund"
-let documentType = "de.devaikin.derhund.item"
-let wiktionaryUrl = "https://de.wiktionary.org/wiki/"
-
-enum Dictionary: String, CaseIterable, Identifiable {
-    case german
-    var id: Self { self }
-}
-
 struct ContentView: View {
     @EnvironmentObject var words: Dict
     @Environment(\.openURL) var openLink
@@ -24,11 +15,7 @@ struct ContentView: View {
             Text("")
                 .navigationTitle("Welcome")
                 .toolbar {
-                    Picker("", selection: $selectedLanguage) {
-                        Text("German").tag(Dictionary.german)
-                    }
-                    .help("Selected language")
-                        .frame(width: 150)
+                    DictionarySelectionView(selectedLanguage: $selectedLanguage)
                     Button("Index", systemImage: "magnifyingglass", action: { showingIndexConfirmation = true })
                         .labelStyle(.titleAndIcon)
                         .help("Import dictionary to Spotlight search")
@@ -71,62 +58,13 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             
-            VStack(alignment: .leading, spacing: 6) {
-                if searchWord.isEmpty {
-                    Text("der")
-                        .font(.system(size: 32.0))
-                        .bold()
-                        .lineLimit(1)
-                        .fixedSize(horizontal: true, vertical: true)
-                    Text("Hund")
-                        .font(.system(size: 24.0))
-                        .lineLimit(1)
-                        .fixedSize(horizontal: true, vertical: true)
-                    Link("\(Image(systemName: "globe")) Wiktionary",
-                         destination: URL(string: wiktionaryUrl + "Hund" + "#Substantiv,_m")!)
-                        .pointingHandCursor()
-                        .help("Lookup \"der Hund\" on wiktionary.com")
-
-                } else {
-                    ForEach(words.words[searchWord.lowercased()] ?? ["..."], id: \.self) { article in
-                        Text(article)
-                            .font(.system(size: 32.0))
-                            .bold()
-                            .lineLimit(1)
-                            .fixedSize(horizontal: true, vertical: true)
-                        Text(searchWord.capitalized)
-                            .font(.system(size: 24.0))
-                            .lineLimit(1)
-                            .fixedSize(horizontal: true, vertical: true)
-                        let gender = articleToGenderPostfix(article: article)
-                        Link("\(Image(systemName: "globe")) Wiktionary",
-                             destination: URL(string: wiktionaryUrl + searchWord.capitalized + "#Substantiv,_" + gender)!)
-                            .pointingHandCursor()
-                            .help("Lookup \"" + article + " " + searchWord.capitalized + "\" on wiktionary.com")
-                        Spacer()
-                            .frame(height: 24)
-                    }
+            LookupResultView(searchWord: $searchWord)
+                .environmentObject(self.words)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .onAppear {
+                    isSearchWordFieldFocused = true
                 }
-                Spacer()
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
-            .onAppear {
-                isSearchWordFieldFocused = true
-            }
-        }
-    }
-    
-    private func articleToGenderPostfix(article: String) -> String {
-        switch article {
-        case "der":
-            return "m"
-        case "die":
-            return "f"
-        case "das":
-            return "n"
-        default:
-            return "n"
         }
     }
     
@@ -167,36 +105,6 @@ struct ContentView: View {
             }
         }
     }
-}
-
-struct DictEntry {
-    var word: String
-    var language: String
-    var article: String
-}
-
-func addWordsToSearchable(words: [DictEntry]) -> [CSSearchableItem] {
-    var searchableItems: [CSSearchableItem] = []
-    var i = 0
-    let myType = UTType(filenameExtension: prefix)!
-    for word in words {
-        let attributeSet = CSSearchableItemAttributeSet(contentType: myType)
-        let capitalised = word.word.capitalized
-        attributeSet.title = prefix + " " + capitalised + " " + word.article
-        attributeSet.displayName = word.article
-        attributeSet.contentDescription = capitalised
-        attributeSet.keywords = [ prefix, capitalised ]
-        attributeSet.comment = prefix + " " + word.article + " " + capitalised
-        attributeSet.contentType = documentType
-
-        let id = word.language + "." + word.article + "." + capitalised
-        let indexItem = CSSearchableItem(uniqueIdentifier: id, domainIdentifier: prefix, attributeSet: attributeSet)
-        searchableItems.append(indexItem)
-        
-        i += 1
-    }
-        
-    return searchableItems
 }
 
 #Preview {

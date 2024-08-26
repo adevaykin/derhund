@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
-import AppKit
 
+#if os(macOS)
 class DerHundAppDelegate: NSObject, NSApplicationDelegate {
     var dict: Dict?
     
@@ -30,3 +30,4 @@ class DerHundAppDelegate: NSObject, NSApplicationDelegate {
         aboutBoxWindowController?.showWindow(aboutBoxWindowController?.window)
     }
 }
+#endif

@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		FA006D632C50274A00AC46E2 /* ArticoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA006D622C50274A00AC46E2 /* ArticoolApp.swift */; };
 		FA006D652C50274A00AC46E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA006D642C50274A00AC46E2 /* ContentView.swift */; };
-		FA006D672C50274B00AC46E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA006D662C50274B00AC46E2 /* Assets.xcassets */; };
 		FA006D6A2C50274B00AC46E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA006D692C50274B00AC46E2 /* Preview Assets.xcassets */; };
 		FA5787E92C6AA8E7001C6EA5 /* LinkCursorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5787E82C6AA8E7001C6EA5 /* LinkCursorExtension.swift */; };
 		FA7D6EB92C74B86B0089F1AE /* MenuBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EB82C74B86B0089F1AE /* MenuBarIcon.swift */; };
 		FA7D6EBD2C74BBCA0089F1AE /* MenuPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EBC2C74BBCA0089F1AE /* MenuPopupView.swift */; };
+		FA7D6EC12C7D29830089F1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7D6EC02C7D29830089F1AE /* Assets.xcassets */; };
+		FA7D6EC32C7D2AA50089F1AE /* LookupResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EC22C7D2AA50089F1AE /* LookupResultView.swift */; };
+		FA7D6EC52C7D2D6D0089F1AE /* ContentViewiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EC42C7D2D6D0089F1AE /* ContentViewiOS.swift */; };
+		FA7D6EC72C7D2D910089F1AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EC62C7D2D910089F1AE /* Constants.swift */; };
+		FA7D6EC92C7D2DC30089F1AE /* DictionarySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EC82C7D2DC30089F1AE /* DictionarySelectionView.swift */; };
+		FA7D6ECB2C7D2E870089F1AE /* Indexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6ECA2C7D2E870089F1AE /* Indexer.swift */; };
 		FA902AD72C6410B0008F76EE /* DerHundAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA902AD62C6410B0008F76EE /* DerHundAppDelegate.swift */; };
 		FA902AD92C6410DB008F76EE /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA902AD82C6410DB008F76EE /* AboutView.swift */; };
 		FAB6324F2C6D4F3B003C1943 /* german_nouns.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAB6324E2C6D4F3B003C1943 /* german_nouns.txt */; };
@@ -37,13 +42,18 @@
 		FA006D5F2C50274A00AC46E2 /* Der Hund.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Der Hund.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA006D622C50274A00AC46E2 /* ArticoolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticoolApp.swift; sourceTree = "<group>"; };
 		FA006D642C50274A00AC46E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		FA006D662C50274B00AC46E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA006D692C50274B00AC46E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA006D6B2C50274B00AC46E2 /* Articool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Articool.entitlements; sourceTree = "<group>"; };
 		FA4C7BE12C5445FA0024441A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FA5787E82C6AA8E7001C6EA5 /* LinkCursorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCursorExtension.swift; sourceTree = "<group>"; };
 		FA7D6EB82C74B86B0089F1AE /* MenuBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIcon.swift; sourceTree = "<group>"; };
 		FA7D6EBC2C74BBCA0089F1AE /* MenuPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopupView.swift; sourceTree = "<group>"; };
+		FA7D6EC02C7D29830089F1AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA7D6EC22C7D2AA50089F1AE /* LookupResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupResultView.swift; sourceTree = "<group>"; };
+		FA7D6EC42C7D2D6D0089F1AE /* ContentViewiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewiOS.swift; sourceTree = "<group>"; };
+		FA7D6EC62C7D2D910089F1AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA7D6EC82C7D2DC30089F1AE /* DictionarySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionarySelectionView.swift; sourceTree = "<group>"; };
+		FA7D6ECA2C7D2E870089F1AE /* Indexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indexer.swift; sourceTree = "<group>"; };
 		FA902AD62C6410B0008F76EE /* DerHundAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DerHundAppDelegate.swift; sourceTree = "<group>"; };
 		FA902AD82C6410DB008F76EE /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		FAB6324E2C6D4F3B003C1943 /* german_nouns.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = german_nouns.txt; path = Data/German/german_nouns.txt; sourceTree = SOURCE_ROOT; };
@@ -83,7 +93,7 @@
 				FA4C7BE12C5445FA0024441A /* Info.plist */,
 				FA006D622C50274A00AC46E2 /* ArticoolApp.swift */,
 				FA006D642C50274A00AC46E2 /* ContentView.swift */,
-				FA006D662C50274B00AC46E2 /* Assets.xcassets */,
+				FA7D6EC02C7D29830089F1AE /* Assets.xcassets */,
 				FA006D6B2C50274B00AC46E2 /* Articool.entitlements */,
 				FA006D682C50274B00AC46E2 /* Preview Content */,
 				FADB2C4D2C5D88DB00DE65E7 /* Dict.swift */,
@@ -93,6 +103,11 @@
 				FAB6324E2C6D4F3B003C1943 /* german_nouns.txt */,
 				FA7D6EB82C74B86B0089F1AE /* MenuBarIcon.swift */,
 				FA7D6EBC2C74BBCA0089F1AE /* MenuPopupView.swift */,
+				FA7D6EC22C7D2AA50089F1AE /* LookupResultView.swift */,
+				FA7D6EC42C7D2D6D0089F1AE /* ContentViewiOS.swift */,
+				FA7D6EC62C7D2D910089F1AE /* Constants.swift */,
+				FA7D6EC82C7D2DC30089F1AE /* DictionarySelectionView.swift */,
+				FA7D6ECA2C7D2E870089F1AE /* Indexer.swift */,
 			);
 			path = Articool;
 			sourceTree = "<group>";
@@ -166,7 +181,7 @@
 			files = (
 				FA006D6A2C50274B00AC46E2 /* Preview Assets.xcassets in Resources */,
 				FAB6324F2C6D4F3B003C1943 /* german_nouns.txt in Resources */,
-				FA006D672C50274B00AC46E2 /* Assets.xcassets in Resources */,
+				FA7D6EC12C7D29830089F1AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,9 +193,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA902AD72C6410B0008F76EE /* DerHundAppDelegate.swift in Sources */,
+				FA7D6ECB2C7D2E870089F1AE /* Indexer.swift in Sources */,
+				FA7D6EC72C7D2D910089F1AE /* Constants.swift in Sources */,
 				FA5787E92C6AA8E7001C6EA5 /* LinkCursorExtension.swift in Sources */,
+				FA7D6EC52C7D2D6D0089F1AE /* ContentViewiOS.swift in Sources */,
 				FA7D6EBD2C74BBCA0089F1AE /* MenuPopupView.swift in Sources */,
+				FA7D6EC32C7D2AA50089F1AE /* LookupResultView.swift in Sources */,
 				FA006D652C50274A00AC46E2 /* ContentView.swift in Sources */,
+				FA7D6EC92C7D2DC30089F1AE /* DictionarySelectionView.swift in Sources */,
 				FA006D632C50274A00AC46E2 /* ArticoolApp.swift in Sources */,
 				FADB2C4E2C5D88DB00DE65E7 /* Dict.swift in Sources */,
 				FA7D6EB92C74B86B0089F1AE /* MenuBarIcon.swift in Sources */,
@@ -312,7 +332,9 @@
 		FA006D6F2C50274B00AC46E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-iOS";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = "AppIcon-iOS";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = "AppIcon-mac";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Articool/Articool.entitlements;
@@ -337,15 +359,20 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.devaikin.derhund;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		FA006D702C50274B00AC46E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-iOS";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = "AppIcon-iOS";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = "AppIcon-mac";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Articool/Articool.entitlements;
@@ -370,8 +397,11 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.devaikin.derhund;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

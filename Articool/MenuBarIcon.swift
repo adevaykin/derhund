@@ -1,3 +1,4 @@
+#if os(macOS)
 import Foundation
 import AppKit
 
@@ -35,3 +36,4 @@ class MenuBarIcon {
         popover.performClose(sender)
     }
 }
+#endif
