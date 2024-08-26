@@ -3,6 +3,7 @@ import CoreSpotlight
 
 let prefix = "hund"
 let documentType = "de.devaikin.derhund.item"
+let wiktionaryUrl = "https://de.wiktionary.org/wiki/"
 
 enum Dictionary: String, CaseIterable, Identifiable {
     case german
@@ -81,6 +82,11 @@ struct ContentView: View {
                         .font(.system(size: 24.0))
                         .lineLimit(1)
                         .fixedSize(horizontal: true, vertical: true)
+                    Link("\(Image(systemName: "globe")) Wiktionary",
+                         destination: URL(string: wiktionaryUrl + "Hund" + "#Substantiv,_m")!)
+                        .pointingHandCursor()
+                        .help("Lookup \"der Hund\" on wiktionary.com")
+
                 } else {
                     ForEach(words.words[searchWord.lowercased()] ?? ["..."], id: \.self) { article in
                         Text(article)
@@ -92,6 +98,11 @@ struct ContentView: View {
                             .font(.system(size: 24.0))
                             .lineLimit(1)
                             .fixedSize(horizontal: true, vertical: true)
+                        let gender = articleToGenderPostfix(article: article)
+                        Link("\(Image(systemName: "globe")) Wiktionary",
+                             destination: URL(string: wiktionaryUrl + searchWord.capitalized + "#Substantiv,_" + gender)!)
+                            .pointingHandCursor()
+                            .help("Lookup \"" + article + " " + searchWord.capitalized + "\" on wiktionary.com")
                         Spacer()
                             .frame(height: 24)
                     }
@@ -103,6 +114,19 @@ struct ContentView: View {
             .onAppear {
                 isSearchWordFieldFocused = true
             }
+        }
+    }
+    
+    private func articleToGenderPostfix(article: String) -> String {
+        switch article {
+        case "der":
+            return "m"
+        case "die":
+            return "f"
+        case "das":
+            return "n"
+        default:
+            return "n"
         }
     }
     
