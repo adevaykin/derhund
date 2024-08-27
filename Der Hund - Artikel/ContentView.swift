@@ -5,8 +5,7 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var words: Dict
     @Environment(\.openURL) var openLink
-//    @State private var showingIndexConfirmation = false
-//    @State private var indexBatchesInFlight = 0
+    
     @State private var selectedLanguage: Dictionary = Dictionary.german
     @State private var searchWord: String = ""
     @FocusState private var isSearchWordFieldFocused: Bool

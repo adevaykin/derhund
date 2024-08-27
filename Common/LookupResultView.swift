@@ -1,9 +1,15 @@
 import Foundation
 import SwiftUI
+#if os(iOS)
+import SafariServices
+#endif
 
 struct LookupResultView: View {
     @Binding var searchWord: String
     @EnvironmentObject var words: Dict
+    
+    @State private var isShowingSafari = false
+    @State private var urlToShow: URL?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -34,10 +40,25 @@ struct LookupResultView: View {
                         .lineLimit(1)
                         .fixedSize(horizontal: true, vertical: true)
                     let gender = articleToGenderPostfix(article: article)
+                    #if os(macOS)
                     Link("\(Image(systemName: "globe")) Wiktionary",
                          destination: URL(string: wiktionaryUrl + searchWord.capitalized + "#Substantiv,_" + gender)!)
                         .pointingHandCursor()
                         .help("Lookup \"" + article + " " + searchWord.capitalized + "\" on wiktionary.com")
+                    #endif
+                    #if os(iOS)
+                    Text("\(Image(systemName: "globe")) Wiktionary")
+                        .foregroundColor(Color.accentColor)
+                        .onTapGesture {
+                            urlToShow = URL(string: wiktionaryUrl + searchWord.capitalized + "#Substantiv,_" + gender)!
+                            isShowingSafari = true
+                        }
+                        .sheet(isPresented: $isShowingSafari) {
+                            if let url = urlToShow {
+                                SafariView(url: url)
+                            }
+                        }
+                    #endif
                     Spacer()
                         .frame(height: resultVSpace)
                 }
@@ -61,3 +82,15 @@ struct LookupResultView: View {
         }
     }
 }
+
+#if os(iOS)
+struct SafariView: UIViewControllerRepresentable {
+    let url: URL
+
+    func makeUIViewController(context: Context) -> SFSafariViewController {
+        return SFSafariViewController(url: url)
+    }
+
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
+}
+#endif
