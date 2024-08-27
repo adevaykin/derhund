@@ -39,7 +39,7 @@ struct LookupResultView: View {
                         .pointingHandCursor()
                         .help("Lookup \"" + article + " " + searchWord.capitalized + "\" on wiktionary.com")
                     Spacer()
-                        .frame(height: 24)
+                        .frame(height: resultVSpace)
                 }
             }
             #if os(macOS)
