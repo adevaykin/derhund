@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct ArticoolApp: App {
+struct DerHundApp: App {
     @NSApplicationDelegateAdaptor(DerHundAppDelegate.self) var appDelegate
     @StateObject private var dict = Dict()
     
