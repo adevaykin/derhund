@@ -5,7 +5,7 @@ struct ContentView: View {
     @EnvironmentObject var words: Dict
     @Environment(\.openURL) var openLink
     @State private var showingIndexConfirmation = false
-    @State private var showindProgressView = false
+    @State private var indexBatchesInFlight = 0
     @State private var selectedLanguage: Dictionary = Dictionary.german
     @State private var searchWord: String = ""
     @FocusState private var isSearchWordFieldFocused: Bool
@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Text("")
-                .navigationTitle("Welcome")
+                .navigationTitle("Der Hund")
                 .toolbar {
                     DictionarySelectionView(selectedLanguage: $selectedLanguage)
                     Button("Index", systemImage: "magnifyingglass", action: { showingIndexConfirmation = true })
@@ -22,13 +22,8 @@ struct ContentView: View {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
                         .scaleEffect(x: 0.5, y: 0.5, anchor: .center)
-                        .opacity(showindProgressView ? 1 : 0)
+                        .opacity(indexBatchesInFlight > 0 ? 1 : 0)
                     Spacer()
-//                    Button("Donate", systemImage: "cup.and.saucer", action: {
-//                        openLink(URL(string: url_donate)!)
-//                    })
-//                    .help("Donate a coffee")
-//                    .labelStyle(.iconOnly)
                 }
                 .confirmationDialog("Spotlight Index", isPresented: $showingIndexConfirmation) {
                     Button("Index") { indexDictionary() }
@@ -69,8 +64,6 @@ struct ContentView: View {
     }
     
     func indexDictionary() {
-        showindProgressView = true
-        
         var allWords: [DictEntry] = []
         for word in words.words {
             for article in word.value {
@@ -87,6 +80,7 @@ struct ContentView: View {
         
         let chunkSize = 20000
         let totalChunks = (searchableItems.count + chunkSize - 1) / chunkSize
+        indexBatchesInFlight = totalChunks-1
         for chunkIndex in 0..<totalChunks {
             let start = chunkIndex * chunkSize
             let end = min(start + chunkSize, searchableItems.count)
@@ -98,9 +92,9 @@ struct ContentView: View {
                 if error != nil {
                     print("Indexing error")
                     print(error?.localizedDescription ?? "Unknown error")
-                    showindProgressView = false
+                    indexBatchesInFlight -= 1
                 } else {
-                    showindProgressView = false
+                    indexBatchesInFlight -= 1
                 }
             }
         }

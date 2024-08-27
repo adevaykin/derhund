@@ -30,4 +30,3 @@ func addWordsToSearchable(words: [DictEntry]) -> [CSSearchableItem] {
         
     return searchableItems
 }
-
