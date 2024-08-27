@@ -23,11 +23,25 @@ struct LookupResultView: View {
                     .font(.system(size: fontSizeWord))
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: true)
+                #if os(macOS)
                 Link("\(Image(systemName: "globe")) Wiktionary",
                      destination: URL(string: wiktionaryUrl + "Hund" + "#Substantiv,_m")!)
                     .pointingHandCursor()
                     .help("Lookup \"der Hund\" on wiktionary.com")
-
+                #endif
+                #if os(iOS)
+                Text("\(Image(systemName: "globe")) Wiktionary")
+                    .foregroundColor(Color.accentColor)
+                    .onTapGesture {
+                        urlToShow = URL(string: wiktionaryUrl + "Hund" + "#Substantiv,_m")!
+                        isShowingSafari = true
+                    }
+                    .sheet(isPresented: $isShowingSafari) {
+                        if let url = urlToShow {
+                            SafariView(url: url)
+                        }
+                    }
+                #endif
             } else {
                 ForEach(words.words[searchWord.lowercased()] ?? ["..."], id: \.self) { article in
                     Text(article)
