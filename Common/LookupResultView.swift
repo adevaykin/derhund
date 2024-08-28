@@ -5,11 +5,23 @@ import SafariServices
 #endif
 
 struct LookupResultView: View {
-    @Binding var searchWord: String
     @EnvironmentObject var words: Dict
+    @Binding var searchWord: String
     
     @State private var isShowingSafari = false
     @State private var urlToShow: URL?
+    
+    let fontSizeArticle: CGFloat
+    let fontSizeWord: CGFloat
+    let resultSpacing: CGFloat
+    
+    init(searchWord: Binding<String>, fontSizeArticle: Float, fontSizeWord: Float, resultSpacing: Float) {
+        self._searchWord = searchWord
+        
+        self.fontSizeArticle = CGFloat(fontSizeArticle)
+        self.fontSizeWord = CGFloat(fontSizeWord)
+        self.resultSpacing = CGFloat(resultSpacing)
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -74,12 +86,9 @@ struct LookupResultView: View {
                         }
                     #endif
                     Spacer()
-                        .frame(height: resultVSpace)
+                        .frame(height: resultSpacing)
                 }
             }
-            #if os(macOS)
-            Spacer()
-            #endif
         }
     }
     

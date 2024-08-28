@@ -20,7 +20,7 @@ struct ContentView: View {
         }
         VStack {
             Spacer()
-            LookupResultView(searchWord: $searchWord)
+            LookupResultView(searchWord: $searchWord, fontSizeArticle: 22, fontSizeWord: 16, resultSpacing: 12)
                 .environmentObject(self.words)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()

@@ -10,11 +10,9 @@ class DerHundAppDelegate: NSObject, NSApplicationDelegate {
     private var popover = NSPopover.init()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-//        let contentView = MenuPopupView().environmentObject(dict!)
-//        
-//        popover.contentSize = NSSize(width: 75, height: 360)
-//        popover.contentViewController = NSHostingController(rootView: contentView)
-//        menuBar = MenuBarIcon.init(popover)
+        let contentView = MenuPopupView(popover: popover).environmentObject(dict!)
+        popover.contentViewController = NSHostingController(rootView: contentView)
+        menuBar = MenuBarIcon.init(popover)
     }
 
     func showAboutWindow() {

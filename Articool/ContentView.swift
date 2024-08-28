@@ -53,13 +53,16 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             
-            LookupResultView(searchWord: $searchWord)
-                .environmentObject(self.words)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .onAppear {
-                    isSearchWordFieldFocused = true
-                }
+            VStack {
+                LookupResultView(searchWord: $searchWord, fontSizeArticle: 32, fontSizeWord: 24, resultSpacing: 16)
+                    .environmentObject(self.words)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .onAppear {
+                        isSearchWordFieldFocused = true
+                    }
+                Spacer()
+            }
         }
     }
     
