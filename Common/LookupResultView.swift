@@ -5,6 +5,7 @@ import SafariServices
 #endif
 
 struct LookupResultView: View {
+    @Environment(\.openURL) var openURL
     @EnvironmentObject var words: Dict
     @Binding var searchWord: String
     
@@ -14,14 +15,9 @@ struct LookupResultView: View {
     let fontSizeArticle: CGFloat
     let fontSizeWord: CGFloat
     let resultSpacing: CGFloat
-    
-    init(searchWord: Binding<String>, fontSizeArticle: Float, fontSizeWord: Float, resultSpacing: Float) {
-        self._searchWord = searchWord
-        
-        self.fontSizeArticle = CGFloat(fontSizeArticle)
-        self.fontSizeWord = CGFloat(fontSizeWord)
-        self.resultSpacing = CGFloat(resultSpacing)
-    }
+    #if os(macOS)
+    var onAnyClick: (() -> Void)
+    #endif
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -36,10 +32,16 @@ struct LookupResultView: View {
                     .lineLimit(1)
                     .fixedSize(horizontal: true, vertical: true)
                 #if os(macOS)
-                Link("\(Image(systemName: "globe")) Wiktionary",
-                     destination: URL(string: wiktionaryUrl + "Hund" + "#Substantiv,_m")!)
-                    .pointingHandCursor()
-                    .help("Lookup \"der Hund\" on wiktionary.com")
+                Button(action: {
+                    self.onAnyClick()
+                    if let url = URL(string: wiktionaryUrl + "Hund" + "#Substantiv,_m") {
+                        openURL(url)
+                    }
+                }) {
+                    Text("\(Image(systemName: "globe")) Wiktionary")
+                        .foregroundColor(Color(nsColor: .linkColor))
+                }
+                .buttonStyle(PlainButtonStyle())
                 #endif
                 #if os(iOS)
                 Text("\(Image(systemName: "globe")) Wiktionary")
@@ -67,10 +69,16 @@ struct LookupResultView: View {
                         .fixedSize(horizontal: true, vertical: true)
                     let gender = articleToGenderPostfix(article: article)
                     #if os(macOS)
-                    Link("\(Image(systemName: "globe")) Wiktionary",
-                         destination: URL(string: wiktionaryUrl + searchWord.capitalized + "#Substantiv,_" + gender)!)
-                        .pointingHandCursor()
-                        .help("Lookup \"" + article + " " + searchWord.capitalized + "\" on wiktionary.com")
+                    Button(action: {
+                        self.onAnyClick()
+                        if let url = URL(string: wiktionaryUrl + searchWord.capitalized + "#Substantiv,_" + gender) {
+                            openURL(url)
+                        }
+                    }) {
+                        Text("\(Image(systemName: "globe")) Wiktionary")
+                            .foregroundColor(Color(nsColor: .linkColor))
+                    }
+                    .buttonStyle(PlainButtonStyle())
                     #endif
                     #if os(iOS)
                     Text("\(Image(systemName: "globe")) Wiktionary")

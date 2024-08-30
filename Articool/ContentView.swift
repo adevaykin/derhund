@@ -54,7 +54,7 @@ struct ContentView: View {
             .padding()
             
             VStack {
-                LookupResultView(searchWord: $searchWord, fontSizeArticle: 32, fontSizeWord: 24, resultSpacing: 16)
+                LookupResultView(searchWord: $searchWord, fontSizeArticle: 32, fontSizeWord: 24, resultSpacing: 16, onAnyClick: {})
                     .environmentObject(self.words)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()

@@ -13,7 +13,7 @@ class MenuBarIcon {
         self.menuBarItem = menuBar.statusItem(withLength: 28.0)
         
         if let menuBarButton = menuBarItem.button {
-            menuBarButton.image = NSImage.dogPath
+            menuBarButton.image = NSImage.menubarIcon
             menuBarButton.image?.size = NSSize(width: 18.0, height: 18.0)
             menuBarButton.image?.isTemplate = true
             

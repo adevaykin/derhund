@@ -6,7 +6,7 @@ struct MenuPopupView: View {
     @EnvironmentObject var words: Dict
     @State private var searchWord: String = ""
     
-    var popover: NSPopover?
+    var popover: NSPopover
     
     var body: some View {
         VStack {
@@ -16,7 +16,9 @@ struct MenuPopupView: View {
                 .fixedSize()
                 .frame(height: 12)
             HStack {
-                LookupResultView(searchWord: $searchWord, fontSizeArticle: 18, fontSizeWord: 16, resultSpacing: 8)
+                LookupResultView(searchWord: $searchWord, fontSizeArticle: 18, fontSizeWord: 16, resultSpacing: 8, onAnyClick: {
+                    dismissView()
+                })
                 Spacer()
             }
         }
@@ -37,7 +39,7 @@ struct MenuPopupView: View {
     }
     
     private func dismissView() {
-        popover?.performClose(nil)
+        popover.performClose(nil)
     }
 }
                     
@@ -47,8 +49,4 @@ struct ViewSizeKey: PreferenceKey {
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
         value = nextValue()
     }
-}
-
-#Preview {
-    MenuPopupView()
 }
