@@ -22,6 +22,7 @@
 		FA03B27B2C7E772A00756381 /* DictionarySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EC82C7D2DC30089F1AE /* DictionarySelectionView.swift */; };
 		FA03B27C2C7E773800756381 /* LinkCursorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5787E82C6AA8E7001C6EA5 /* LinkCursorExtension.swift */; };
 		FA5787E92C6AA8E7001C6EA5 /* LinkCursorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5787E82C6AA8E7001C6EA5 /* LinkCursorExtension.swift */; };
+		FA5989EA2C8262FA001F3275 /* icon-ios1024.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5989E92C8262FA001F3275 /* icon-ios1024.png */; };
 		FA7D6EB92C74B86B0089F1AE /* MenuBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EB82C74B86B0089F1AE /* MenuBarIcon.swift */; };
 		FA7D6EBD2C74BBCA0089F1AE /* MenuPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D6EBC2C74BBCA0089F1AE /* MenuPopupView.swift */; };
 		FA7D6EC12C7D29830089F1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7D6EC02C7D29830089F1AE /* Assets.xcassets */; };
@@ -61,6 +62,8 @@
 		FA03B2702C7E763300756381 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA4C7BE12C5445FA0024441A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FA5787E82C6AA8E7001C6EA5 /* LinkCursorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCursorExtension.swift; sourceTree = "<group>"; };
+		FA5989E82C825A1F001F3275 /* Der-Hund---Artikel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Der-Hund---Artikel-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FA5989E92C8262FA001F3275 /* icon-ios1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-ios1024.png"; path = "Icons/icon-ios1024.png"; sourceTree = SOURCE_ROOT; };
 		FA7D6EB82C74B86B0089F1AE /* MenuBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIcon.swift; sourceTree = "<group>"; };
 		FA7D6EBC2C74BBCA0089F1AE /* MenuPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopupView.swift; sourceTree = "<group>"; };
 		FA7D6EC02C7D29830089F1AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,9 +142,11 @@
 		FA03B2682C7E763300756381 /* Der Hund - Artikel */ = {
 			isa = PBXGroup;
 			children = (
+				FA5989E82C825A1F001F3275 /* Der-Hund---Artikel-Info.plist */,
 				FA03B2692C7E763300756381 /* DerHundApp.swift */,
 				FA03B26B2C7E763300756381 /* ContentView.swift */,
 				FA03B26D2C7E763300756381 /* Assets.xcassets */,
+				FA5989E92C8262FA001F3275 /* icon-ios1024.png */,
 				FA03B26F2C7E763300756381 /* Preview Content */,
 			);
 			path = "Der Hund - Artikel";
@@ -262,6 +267,7 @@
 				FA03B2712C7E763300756381 /* Preview Assets.xcassets in Resources */,
 				FA03B2792C7E76E800756381 /* german_nouns.txt in Resources */,
 				FA03B26E2C7E763300756381 /* Assets.xcassets in Resources */,
+				FA5989EA2C8262FA001F3275 /* icon-ios1024.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +439,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Articool/Preview Content\"";
 				DEVELOPMENT_TEAM = 5TNUDC5YG2;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -448,7 +454,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = de.devaikin.derhund;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = macosx;
@@ -468,7 +474,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Articool/Preview Content\"";
 				DEVELOPMENT_TEAM = 5TNUDC5YG2;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -483,7 +489,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = de.devaikin.derhund;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = macosx;
@@ -499,18 +505,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Der Hund - Artikel/Preview Content\"";
 				DEVELOPMENT_TEAM = 5TNUDC5YG2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Der-Hund---Artikel-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Der Hund";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,18 +545,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Der Hund - Artikel/Preview Content\"";
 				DEVELOPMENT_TEAM = 5TNUDC5YG2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Der-Hund---Artikel-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Der Hund";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

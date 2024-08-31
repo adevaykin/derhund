@@ -16,7 +16,7 @@ struct ContentView: View {
                 .navigationTitle("Der Hund")
                 .toolbar {
                     DictionarySelectionView(selectedLanguage: $selectedLanguage)
-                    Button("Index", systemImage: "magnifyingglass", action: { showingIndexConfirmation = true })
+                    Button("Index", systemImage: "arrow.clockwise", action: { showingIndexConfirmation = true })
                         .labelStyle(.titleAndIcon)
                         .help("Import dictionary to Spotlight search")
                     ProgressView()
@@ -95,10 +95,8 @@ struct ContentView: View {
                 if error != nil {
                     print("Indexing error")
                     print(error?.localizedDescription ?? "Unknown error")
-                    indexBatchesInFlight -= 1
-                } else {
-                    indexBatchesInFlight -= 1
                 }
+                indexBatchesInFlight -= 1
             }
         }
     }
