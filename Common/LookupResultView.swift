@@ -41,6 +41,7 @@ struct LookupResultView: View {
                     Text("\(Image(systemName: "globe")) Wiktionary")
                         .foregroundColor(Color(nsColor: .linkColor))
                 }
+                .pointingHandCursor()
                 .buttonStyle(PlainButtonStyle())
                 #endif
                 #if os(iOS)
@@ -78,6 +79,7 @@ struct LookupResultView: View {
                         Text("\(Image(systemName: "globe")) Wiktionary")
                             .foregroundColor(Color(nsColor: .linkColor))
                     }
+                    .pointingHandCursor()
                     .buttonStyle(PlainButtonStyle())
                     #endif
                     #if os(iOS)

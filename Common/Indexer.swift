@@ -23,6 +23,7 @@ func addWordsToSearchable(words: [DictEntry]) -> [CSSearchableItem] {
         attributeSet.contentDescription = capitalised
         attributeSet.keywords = [ prefix, capitalised ]
         attributeSet.comment = prefix + " " + word.article + " " + capitalised
+        attributeSet.url = URL(string: "my.url.hund")
         #endif
         #if os(iOS)
         attributeSet.displayName = capitalised

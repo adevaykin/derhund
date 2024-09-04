@@ -4,12 +4,16 @@ import CoreSpotlight
 struct ContentView: View {
     @EnvironmentObject var words: Dict
     @Environment(\.openURL) var openLink
+    
     @State private var showingIndexConfirmation = false
+    @State private var showPaymentSheet = false
+    @State private var selectedAmount = 1.0
     @State private var indexBatchesInFlight = 0
     @State private var selectedLanguage: Dictionary = Dictionary.german
     @State private var searchWord: String = ""
-    @FocusState private var isSearchWordFieldFocused: Bool
     
+    @FocusState private var isSearchWordFieldFocused: Bool
+
     var body: some View {
         NavigationStack {
             Text("")
@@ -24,6 +28,14 @@ struct ContentView: View {
                         .scaleEffect(x: 0.5, y: 0.5, anchor: .center)
                         .opacity(indexBatchesInFlight > 0 ? 1 : 0)
                     Spacer()
+                    if (direct_distribution) {
+                        Button(action: {
+                            openLink(URL(string: url_donate)!)
+                        }) {
+                            Text("\(Image(systemName: "cup.and.saucer"))")
+                        }
+                        .help("Donate me a coffee")
+                    }
                 }
                 .confirmationDialog("Spotlight Index", isPresented: $showingIndexConfirmation) {
                     Button("Index") { indexDictionary() }
@@ -100,8 +112,4 @@ struct ContentView: View {
             }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
